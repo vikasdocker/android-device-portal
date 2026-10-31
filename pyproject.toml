@@ -30,6 +30,13 @@ testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-q"
 
+[tool.setuptools]
+packages = ["portal", "portal.app"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+portal = ["web/*"]
+
 [tool.ruff]
 line-length = 110
 target-version = "py310"
