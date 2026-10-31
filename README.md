@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/blueflutex-badge.svg" alt="BlueFluteX" width="76" height="76">
+
 # 📱 Android Device Portal
 
 **Run your Android app through 16 device profiles — one emulator at a time, unattended.**
@@ -15,6 +17,7 @@ and moves to the next device.
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Platform: Windows](https://img.shields.io/badge/platform-Windows-0078D6.svg)](#requirements)
 [![Docker](https://img.shields.io/badge/docker-compose-2496ED.svg?logo=docker&logoColor=white)](#quick-start-docker)
+[![Built by BlueFluteX](https://img.shields.io/badge/built%20by-BlueFluteX-0f766e.svg)](https://blueflutex.gt.tc/)
 
 [Features](#features) · [Architecture](#architecture) · [Quick start](#quick-start-docker) · [Device matrix](#the-16-device-matrix) · [Configuration](#configuration) · [Troubleshooting](#troubleshooting) · [Contributing](#contributing)
 
@@ -324,14 +327,25 @@ py -3 -m venv portal\.venv
 Please follow the [Code of Conduct](CODE_OF_CONDUCT.md). For security issues,
 use the private reporting flow in [SECURITY.md](SECURITY.md), not a public issue.
 
+## Built by BlueFluteX
+
+Android Device Portal is designed and maintained by **BlueFluteX**, a software
+studio in Pune, India. We build mobile, desktop, and AI systems that are
+architected to be extended, not rewritten.
+
+- **Website:** <https://blueflutex.gt.tc/>
+- **Email:** <vikasshu7@gmail.com>
+- **Studio:** Pune, Maharashtra, India
+- **Tagline:** *Code with Harmony*
+
 ## License
 
 Released under the [MIT License](LICENSE).
 
-Copyright © 2026 Vikas.
+Copyright © 2026 **BlueFluteX**. All rights reserved.
 
 ---
 
 <div align="center">
-  <sub>Built for developers who would rather ship than babysit an emulator.</sub>
+  <sub>Built with care by <a href="https://blueflutex.gt.tc/">BlueFluteX</a> · Pune, India</sub>
 </div>

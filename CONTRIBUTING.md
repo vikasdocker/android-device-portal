@@ -1,5 +1,6 @@
 # Contributing to Android Device Portal
 
+Android Device Portal is a [BlueFluteX](https://blueflutex.gt.tc/) project.
 Thanks for taking the time to contribute. This project is a Windows-first,
 single-machine test harness, so changes should keep that deployment model in
 mind: one emulator at a time, no cloud dependency, and no secrets in the repo.

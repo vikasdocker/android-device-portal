@@ -58,10 +58,8 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the project maintainers by opening a confidential report through
-GitHub's [report abuse](https://github.com/contact/report-abuse) flow or by
-contacting the repository owner directly. All complaints will be reviewed and
-investigated promptly and fairly.
+reported to the BlueFluteX maintainers at <vikasshu7@gmail.com>. All complaints
+will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
 reporter of any incident.

@@ -132,3 +132,11 @@ a { color: var(--accent); }
 }
 .toast.show { transform: translate(-50%, 0); opacity: 1; }
 .toast.error { border-color: var(--red); background: #2a1417; color: #fecaca; }
+
+.site-foot {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 18px 20px 28px; margin-top: 10px; border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 12px;
+}
+.site-foot a { color: var(--text); text-decoration: none; }
+.site-foot a:hover { color: var(--accent); }

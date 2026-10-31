@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>BlueFluteX</title>
+  <rect width="64" height="64" rx="14" fill="#faf8f4"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 28c6-3 11-1 15 4" stroke="#14786f" stroke-width="2.4"/>
+    <circle cx="7" cy="28" r="2.2" fill="#faf8f4" stroke="#0f5c56" stroke-width="2"/>
+    <path d="M9 40c4-1 8 0 11 3" stroke="#0f5c56" stroke-width="2.4"/>
+    <circle cx="7" cy="40" r="2.2" fill="#faf8f4" stroke="#0f5c56" stroke-width="2"/>
+    <path d="M36 42c7-5 15-4 21 2" stroke="#14786f" stroke-width="2.4"/>
+    <circle cx="58" cy="45" r="2.2" fill="#faf8f4" stroke="#0f5c56" stroke-width="2"/>
+    <path d="M36 28c3-11 13-20 24-23 0 13-8 25-22 31z" fill="#0f5c56" stroke="#0f5c56" stroke-width="1.1"/>
+    <path d="M38 31C46 24 52 15 57 8" stroke="#faf8f4" stroke-width="1.4"/>
+    <path d="M33 33c1-9 8-17 16-20-2 9-7 16-17 23z" fill="#14786f" stroke="#14786f" stroke-width="1.1"/>
+    <path d="M11 55 38 28" stroke="#14110f" stroke-width="8.5"/>
+    <path d="M15.5 50.5 17.5 48.5M21 45 23 43M26.5 39.5 28.5 37.5M32 34 34 32" stroke="#faf8f4" stroke-width="2.4"/>
+  </g>
+</svg>

@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "android-device-portal"
-version = "1.0.0"
+version = "1.0.1"
 description = "Self-hosted, sequential Android device-matrix testing on a single Windows machine."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Vikas" }]
+authors = [{ name = "BlueFluteX", email = "vikasshu7@gmail.com" }]
 keywords = ["android", "emulator", "testing", "play-store", "fastapi", "qa"]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
@@ -24,6 +24,13 @@ classifiers = [
   "Topic :: Software Development :: Quality Assurance",
   "Topic :: Software Development :: Testing",
 ]
+
+[project.urls]
+Homepage = "https://github.com/vikasdocker/android-device-portal"
+Company = "https://blueflutex.gt.tc/"
+Source = "https://github.com/vikasdocker/android-device-portal"
+Issues = "https://github.com/vikasdocker/android-device-portal/issues"
+Changelog = "https://github.com/vikasdocker/android-device-portal/blob/main/CHANGELOG.md"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

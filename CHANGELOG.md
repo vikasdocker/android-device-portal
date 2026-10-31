@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-10-31
+
+### Changed
+
+- Updated the copyright holder and project attribution to **BlueFluteX**, the
+  software studio behind the project.
+- Added BlueFluteX company links and contact details to the README, package
+  metadata, container labels, portal footer, and security policy.
+- Added a project-level `AGENTS.md` with build, test, and branding guidance.
+
 ## [1.0.0] - 2026-10-31
 
 ### Added
@@ -28,5 +38,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Agent token authentication with portal-side proxying of screenshots.
 - MIT license, contribution guide, security policy, and CI checks.
 
-[Unreleased]: https://github.com/vikasdocker/android-device-portal/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/vikasdocker/android-device-portal/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/vikasdocker/android-device-portal/releases/tag/v1.0.1
 [1.0.0]: https://github.com/vikasdocker/android-device-portal/releases/tag/v1.0.0
