@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Android Device Portal</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">📱 <b>Device Portal</b> <span class="muted" id="device-count">device matrix</span></div>
+  <div class="row">
+    <a href="/api/report" target="_blank" class="btn small">📄 Report</a>
+    <div class="agent">
+      <span class="dot" id="agent-dot"></span>
+      <span id="agent-text">connecting…</span>
+    </div>
+  </div>
+</header>
+
+<section class="bar">
+  <div class="summary" id="summary">idle</div>
+  <div class="actions">
+    <button id="btn-run-all" class="btn primary">▶ Auto-run all (open → test → close)</button>
+    <button id="btn-stop" class="btn danger" disabled>■ Stop</button>
+    <button id="btn-skip" class="btn" disabled>⏭ Skip device</button>
+    <button id="btn-kill" class="btn ghost" title="Force-kill any emulator using port 5554">☠ Kill emulator</button>
+  </div>
+</section>
+
+<details class="card settings" id="settings-panel">
+  <summary>⚙ App &amp; test settings</summary>
+  <div class="settings-grid">
+    <label>Package name (optional)
+      <input id="s-package" placeholder="leave empty to auto-detect the installed app">
+    </label>
+    <label>Install mode
+      <select id="s-mode">
+        <option value="installed">Already installed (launch only)</option>
+        <option value="play">Play internal-test link</option>
+        <option value="apk">APK file</option>
+        <option value="aab">AAB bundle (bundletool)</option>
+      </select>
+    </label>
+    <label class="wide">APK path on this PC
+      <span class="row" style="width:100%">
+        <input id="s-apk" placeholder="C:\path\to\myapp\app-release.apk" style="flex:1">
+        <input type="file" id="f-apk" accept=".apk" hidden>
+        <button class="btn small" id="btn-up-apk">⬆ Upload APK</button>
+      </span>
+    </label>
+    <label class="wide">AAB path on this PC
+      <span class="row" style="width:100%">
+        <input id="s-aab" placeholder="C:\path\to\myapp\app-release.aab" style="flex:1">
+        <input type="file" id="f-aab" accept=".aab" hidden>
+        <button class="btn small" id="btn-up-aab">⬆ Upload AAB</button>
+      </span>
+    </label>
+    <label class="wide">Play internal-test link
+      <input id="s-play" placeholder="https://play.google.com/apps/internaltest/…">
+    </label>
+    <label>Settle after launch (seconds)
+      <input id="s-settle" type="number" min="1" max="180" step="1">
+    </label>
+    <label>Screenshot offsets (seconds, comma separated)
+      <input id="s-shots" placeholder="2,8,20">
+    </label>
+    <label class="check"><input type="checkbox" id="s-quickboot"> Quick boot (use emulator snapshots — faster reruns)</label>
+    <label class="check"><input type="checkbox" id="s-wipe"> Wipe device data before each run</label>
+    <label class="check"><input type="checkbox" id="s-autostop" checked> Auto-stop emulator after each run</label>
+  </div>
+  <p class="muted" style="margin:12px 0 0">
+    Already-installed mode launches the app that is already on each AVD (auto-detected when you leave the
+    package name empty). Play-link mode installs it first and skips the store when it is already there.
+    Every run opens the app, observes it, closes it, then moves to the next device.
+  </p>
+  <div class="row end" style="margin-top:12px">
+    <span class="muted" id="settings-hint"></span>
+    <button class="btn primary" id="btn-save">💾 Save settings</button>
+  </div>
+</details>
+
+<main>
+  <div id="device-grid" class="grid"></div>
+</main>
+
+<section class="card runs-card">
+  <h3>Run history</h3>
+  <table id="runs-table">
+    <thead><tr><th>Started</th><th>Device</th><th>Status</th><th></th></tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box">
+    <div class="row" style="justify-content:space-between">
+      <h3 id="modal-title">Run</h3>
+      <button class="btn" id="modal-close">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

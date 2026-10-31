@@ -1,0 +1,32 @@
+services:
+  portal:
+    build:
+      context: ./portal
+    image: ghcr.io/vikasdocker/android-device-portal:latest
+    container_name: android-device-portal
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      DATA_DIR: /data
+      CONFIG_DIR: /config
+      AGENT_URL: ${AGENT_URL:-http://host.docker.internal:8765}
+      AGENT_TOKEN: ${AGENT_TOKEN:-change-me}
+      HOST_DATA_DIR: ${HOST_DATA_DIR:-}
+    volumes:
+      - ./data:/data
+      - ./config:/config:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

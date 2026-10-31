@@ -1,0 +1,103 @@
+name: Bug report
+description: Report a reproducible problem with the portal, agent, or scripts.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Please remove tokens, local
+        usernames, and other private data from logs before submitting.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I ran `scripts\doctor.ps1` and included the relevant output.
+          required: false
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Select ...
+        3. Press ...
+        4. See error
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Portal UI
+        - Portal API
+        - Host agent
+        - Emulator / AVD
+        - APK / AAB install
+        - Play internal-test link
+        - Scripts / setup
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: v1.0.0 / commit SHA
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Windows version, Python version, Docker version, Android SDK/emulator version, and host RAM.
+      placeholder: |
+        Windows 11 24H2
+        Python 3.12.4
+        Docker Desktop 4.36
+        Android SDK 35.0.2 / emulator 35.2.10
+        16 GB RAM
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Paste the error, `data\portal-host.err.log`, or the tail of the run's `logcat.txt`.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, device profile, install mode, and anything else that may help.
+    validations:
+      required: false
