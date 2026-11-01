@@ -17,7 +17,7 @@ and moves to the next device.
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Platform: Windows](https://img.shields.io/badge/platform-Windows-0078D6.svg)](#requirements)
 [![Docker](https://img.shields.io/badge/docker-compose-2496ED.svg?logo=docker&logoColor=white)](#quick-start-docker)
-[![Built by BlueFluteX](https://img.shields.io/badge/built%20by-BlueFluteX-0f766e.svg)](https://blueflutex.gt.tc/)
+[![Built by BlueFluteX](https://img.shields.io/badge/built%20by-BlueFluteX-0f766e.svg)](https://blueflutex.in/)
 
 [Features](#features) · [Architecture](#architecture) · [Quick start](#quick-start-docker) · [Device matrix](#the-16-device-matrix) · [Configuration](#configuration) · [Troubleshooting](#troubleshooting) · [Contributing](#contributing)
 
@@ -333,8 +333,8 @@ Android Device Portal is designed and maintained by **BlueFluteX**, a software
 studio in Pune, India. We build mobile, desktop, and AI systems that are
 architected to be extended, not rewritten.
 
-- **Website:** <https://blueflutex.gt.tc/>
-- **Email:** <vikasshu7@gmail.com>
+- **Website:** <https://blueflutex.in/>
+- **Email:** <support@blueflutex.in>
 - **Studio:** Pune, Maharashtra, India
 - **Tagline:** *Code with Harmony*
 
@@ -347,5 +347,5 @@ Copyright © 2026 **BlueFluteX**. All rights reserved.
 ---
 
 <div align="center">
-  <sub>Built with care by <a href="https://blueflutex.gt.tc/">BlueFluteX</a> · Pune, India</sub>
+  <sub>Built with care by <a href="https://blueflutex.in/">BlueFluteX</a> · Pune, India</sub>
 </div>

@@ -4,9 +4,9 @@
 
 This project is owned and maintained by **BlueFluteX**.
 
-- Website: <https://blueflutex.gt.tc/>
+- Website: <https://blueflutex.in/>
 - Studio: Pune, Maharashtra, India
-- Contact: <vikasshu7@gmail.com>
+- Contact: <support@blueflutex.in>
 - Tagline: *Code with Harmony*
 
 Keep BlueFluteX attribution in `LICENSE`, `README.md`, `pyproject.toml`,
@@ -47,4 +47,4 @@ scripts\run_host.ps1
 - Update `CHANGELOG.md` and the version in `pyproject.toml` for user-visible
   changes.
 - Release notes must credit **BlueFluteX** and link to
-  <https://blueflutex.gt.tc/>.
+  <https://blueflutex.in/>.

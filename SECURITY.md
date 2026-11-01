@@ -13,7 +13,7 @@ Please do **not** open a public issue for a security problem.
 Use GitHub's private vulnerability reporting form:
 <https://github.com/vikasdocker/android-device-portal/security/advisories/new>
 
-You can also email the BlueFluteX team at <vikasshu7@gmail.com> with the subject
+You can also email the BlueFluteX team at <support@blueflutex.in> with the subject
 `[security] Android Device Portal`. Please do not include exploit details in a
 public issue.
 
