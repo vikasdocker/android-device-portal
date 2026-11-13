@@ -327,6 +327,108 @@ py -3 -m venv portal\.venv
 Please follow the [Code of Conduct](CODE_OF_CONDUCT.md). For security issues,
 use the private reporting flow in [SECURITY.md](SECURITY.md), not a public issue.
 
+
+## Public cloud deployment (androidportal.blueflute.in)
+
+The current release is a **single-operator, self-hosted Windows test bench**. It is
+not a multi-tenant public service. Do not expose the existing portal API or the
+Windows host-agent directly to the internet. The shared settings, queue, run
+history, upload directory, and device controls are global, and the host-agent
+can execute emulator/ADB operations on its machine.
+
+For a public BlueFluteX service, use a separate cloud deployment profile and
+keep the existing Windows workflow available for local use.
+
+### Recommended target architecture
+
+```text
+Browser
+  |
+  | HTTPS
+  v
+Cloudflare (DNS, TLS, WAF/rate limits)
+  |
+  v
+Public web app + FastAPI control plane
+  |-- Authentication / user and session ownership
+  |-- PostgreSQL (users, quotas, session metadata)
+  |-- Private object storage (APK uploads and reports)
+  |-- Job scheduler / queue
+  |
+  v
+Private Linux Android worker pool (KVM-enabled hosts)
+  |-- One isolated emulator runtime per allocated session
+  |-- Per-session ADB/network namespace and storage
+  |-- Hard CPU, RAM, disk, time and upload limits
+  |
+  v
+Authenticated emulator gateway
+  |
+  +-- Browser WebRTC video/audio
+  +-- Authenticated input channel (touch, keyboard, hardware keys)
+  +-- Controlled APK install and logcat APIs
+```
+
+### Browser streaming implementation
+
+Evaluate Google's
+[android-emulator-container-scripts](https://github.com/google/android-emulator-container-scripts)
+and
+[android-emulator-webrtc](https://github.com/google/android-emulator-webrtc)
+for the emulator container and browser gateway/React integration. They provide
+a closer starting point than exposing raw ADB or VNC ports. Review upstream
+licenses, supported emulator versions, and operational requirements before
+adopting them.
+
+Android Emulator acceleration on Linux requires a compatible host and KVM.
+A virtual machine that does not expose nested virtualization may not be suitable.
+See the [Android Emulator acceleration guide](https://developer.android.com/studio/run/emulator-acceleration).
+
+### Required milestones before public launch
+
+1. **Cloud runtime:** provision KVM-capable Linux workers; package and validate
+   one emulator image; add health checks, graceful shutdown and capacity limits.
+2. **Tenant-safe control plane:** add authentication, session ownership checks
+   on every API and WebSocket, PostgreSQL migrations, expiring session tokens,
+   per-user quotas and audit events. Never trust a session or user ID supplied
+   only by the browser.
+3. **Isolated sessions:** allocate a separate emulator process/container and
+   storage namespace per session; prevent cross-session ADB, filesystem and
+   network access; destroy resources and uploaded APKs according to retention
+   policy.
+4. **Browser experience:** create/start/stop session, stream screen, touch and
+   keyboard input, APK upload/install, logs, screenshots and downloadable report.
+5. **Abuse and cost controls:** email verification or another signup control,
+   rate limits, upload size/type validation, malware scanning, session duration
+   caps, concurrency quotas, per-IP controls and worker-level resource limits.
+6. **Operations:** HTTPS, secrets manager, backups, metrics, centralized logs,
+   alerting, incident response and documented privacy/retention terms.
+7. **Canary launch:** private beta with a small worker pool; test malicious APKs,
+   concurrent users, browser disconnects, worker crashes and cleanup before
+   allowing public signup.
+
+### Domain and reverse proxy
+
+Create a DNS record for `androidportal.blueflute.in` pointing to the public
+application ingress. Enable HTTPS, restrict the origin to trusted ingress
+traffic, and do not publish worker, ADB, emulator-console, or host-agent ports.
+Cloudflare supports proxied WebSockets; configure the Network > WebSockets
+setting and test long-lived connections and WebRTC media paths separately.
+WebRTC may require appropriate UDP/TURN connectivity depending on the network.
+
+### Important separation from today's deployment
+
+- Keep the current Windows host-agent workflow for personal/local testing.
+- Do not register a personal Windows desktop as an unrestricted public worker.
+- Do not reuse the single shared `AGENT_TOKEN` as a browser or user credential.
+- Do not make `/api/state`, `/api/settings`, `/api/upload`, queue, wipe, kill,
+  or run-artifact endpoints public until tenant authorization is implemented.
+- The existing sequential 16-profile matrix remains an automated QA workflow;
+  public interactive sessions need a separately allocated emulator runtime.
+
+This section is an implementation plan, not a claim that the public service is
+already deployed or safe for public traffic.
+
 ## Built by BlueFluteX
 
 Android Device Portal is designed and maintained by **BlueFluteX**, a software
