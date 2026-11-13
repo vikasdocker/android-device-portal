@@ -17,6 +17,10 @@ The existing 16-profile sequential QA workflow remains available to the owner/ad
 
 ## Host qualification gate
 
+Current owner-host estimate (13 Nov 2026): Intel Core i5-13450HX (10 cores / 16 logical processors), 16 GB RAM, NVMe storage, GPU and upload bandwidth not yet identified. CPU and storage are promising; 16 GB RAM makes three concurrent AVDs a constrained experiment, not an approved production capacity. Begin with one and two sessions; only approve three if measured free RAM, CPU, boot stability and stream quality pass the acceptance gate. A 32 GB RAM upgrade is the recommended direction if three concurrent sessions are a firm requirement.
+
+Phase 0 scripts: `scripts/windows/diagnose-host.ps1` performs read-only inventory and acceleration checks; `scripts/windows/measure-avd-load.ps1` samples resource usage while one, two or three AVDs are manually running.
+
 Before enabling public sessions, run and record:
 
 - Windows version and x64 architecture.
@@ -26,7 +30,7 @@ Before enabling public sessions, run and record:
 - GPU model and emulator graphics compatibility.
 - Android SDK, emulator and platform-tools versions.
 - `emulator -accel-check` output; require usable WHPX on Windows.
-- Actual cold-boot and steady-state RAM/CPU for one, two and three AVDs.
+- Actual cold-boot and steady-state RAM/CPU for one, two and three AVDs using the Phase 0 sampler; include realistic browser-streaming load.
 - Internet upload bandwidth, latency, data cap and power/UPS reliability.
 
 Do not assume three concurrent AVDs are safe merely because three profiles exist. Start with one slot, measure, then two, then three. A practical minimum target is 16 GB RAM for experimentation; 32 GB or more is preferable for three concurrent sessions, depending on host load and AVD configuration. The emulator requires CPU virtualization support and hardware acceleration for acceptable performance.
@@ -69,7 +73,7 @@ The browser must never receive ADB access, emulator console ports, the host-agen
 - Define session states: queued, starting, ready, stopping, stopped, failed, expired.
 - Define a hard cap of three active sessions and one session per account for the initial beta.
 
-**Exit criteria:** one, two and three AVD load tests produce measured resource reports; no public endpoint is exposed yet.
+**Exit criteria:** host diagnostic JSON plus idle/one/two/three-AVD CSV reports are reviewed; acceleration is usable; no public endpoint is exposed yet.
 
 ### Phase 1 — security foundation
 
