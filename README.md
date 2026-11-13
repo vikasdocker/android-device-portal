@@ -328,6 +328,11 @@ Please follow the [Code of Conduct](CODE_OF_CONDUCT.md). For security issues,
 use the private reporting flow in [SECURITY.md](SECURITY.md), not a public issue.
 
 
+
+### Public self-hosted service roadmap
+
+Planning to host a public, account-based Android testing service on a Windows PC with Cloudflare Tunnel? Read [the public self-hosted deployment roadmap](docs/PUBLIC_SELF_HOSTED_ROADMAP.md). The current portal is not safe for direct public multi-user exposure; follow the security and isolation milestones before launch.
+
 ## Public cloud deployment (androidportal.blueflute.in)
 
 The current release is a **single-operator, self-hosted Windows test bench**. It is
