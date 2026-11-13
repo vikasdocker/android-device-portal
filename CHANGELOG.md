@@ -51,3 +51,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/vikasdocker/android-device-portal/releases/tag/v1.0.2
 [1.0.1]: https://github.com/vikasdocker/android-device-portal/releases/tag/v1.0.1
 [1.0.0]: https://github.com/vikasdocker/android-device-portal/releases/tag/v1.0.0
+
+
+## [Unreleased] - Public cloud deployment planning
+
+- Documented the target architecture and deployment milestones for a public
+  BlueFluteX Android testing service at androidportal.blueflute.in.
+- Added explicit warnings against exposing the existing single-operator
+  portal and Windows host-agent directly to the internet.
+- Kept the existing self-hosted Windows deployment model unchanged.
