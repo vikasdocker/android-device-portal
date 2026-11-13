@@ -48,3 +48,13 @@ scripts\run_host.ps1
   changes.
 - Release notes must credit **BlueFluteX** and link to
   <https://blueflutex.in/>.
+
+
+## Public deployment safety
+
+- The current portal is single-operator only; do not expose it publicly as-is.
+- Public multi-user functionality requires tenant-scoped authentication and
+  authorization for every API, WebSocket, upload, artifact and session action.
+- Public Android sessions must run on isolated cloud workers, not an unrestricted
+  personal Windows host-agent.
+- Never commit production secrets, user APKs, session data or credentials.
